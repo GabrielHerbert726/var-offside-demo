@@ -1,0 +1,473 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!doctype html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;VAR Offside Demo&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--bg:#0b0f0e;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--panel:#0f1715;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--text:#d7dfdd;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--muted:#8e9a96;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--green:#39d98a;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--red:#ff4d4f;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--blue:#4a90ff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--yellow:#f5c542;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--line:#1d2a26;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.wrap{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 980px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 18px 14px 28px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: radial-gradient(1200px 600px at 50% 0%, rgba(57,217,138,.08), transparent 60%),</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,.06);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 20px 60px rgba(0,0,0,.45);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.top{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:flex-start;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content:space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap:wrap;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:.2px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 650;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sub{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 6px 0 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 680px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.45;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.controls{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap:wrap;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.06);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 8px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor:pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button:hover{background: rgba(255,255,255,.085);}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.pill{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 7px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(0,0,0,.15);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* 16:9 demo box */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.demoBox{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>aspect-ratio: 16 / 9;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow:hidden;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,.45));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,.06);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* p5 canvas will be injected here */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#p5host { position:absolute; inset:0; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.bottom{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content:space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap:wrap;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.verdict{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 650;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.verdict span{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 4px 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(0,0,0,.18);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-left: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.legend{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap:wrap;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.dot{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width:10px;height:10px;border-radius:999px;display:inline-block;margin-right:6px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.16);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hint{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.35;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 520px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>a { color: var(--green); text-decoration:none; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>a:hover{text-decoration:underline;}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="top"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h1&gt;VAR Offside (Interactive Demo)&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="sub"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Drag the &lt;b&gt;blue attacker&lt;/b&gt; and release. The system draws the offside line using the</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;b&gt;second-last red defender&lt;/b&gt; (goalkeeper excluded) and the &lt;b&gt;ball position&lt;/b&gt; at the moment of the pass.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="controls"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button id="resetBtn" type="button"&gt;Reset attacker&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="pill"&gt;Attack direction: right → left&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="demoBox" aria-label="Offside demo"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="p5host"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="bottom"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="verdict" id="verdictText"&gt;Verdict: &lt;span&gt;Drag attacker&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="legend"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;&lt;i class="dot" style="background:var(--blue)"&gt;&lt;/i&gt;Attacker&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;&lt;i class="dot" style="background:var(--red)"&gt;&lt;/i&gt;Defenders&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;&lt;i class="dot" style="background:var(--yellow)"&gt;&lt;/i&gt;Goalkeeper&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;&lt;i class="dot" style="background:#fff"&gt;&lt;/i&gt;Ball&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;&lt;i class="dot" style="background:var(--green)"&gt;&lt;/i&gt;Offside line&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hint"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Simplified law: attacker is offside if he is closer to the goal line than both the ball and the second-last defender at the moment the ball is played.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- p5.js CDN --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- Demo configuration ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Goal is on the LEFT. Attack goes RIGHT -&gt; LEFT.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// We'll treat offside in 1D along x-axis for clarity.</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const COLORS = {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>bg: "#0b0f0e",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>pitch: "rgba(57,217,138,0.08)",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>pitchLine: "rgba(57,217,138,0.18)",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text: "rgba(215,223,221,0.92)",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>muted: "rgba(142,154,150,0.9)",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>blue: getComputedStyle(document.documentElement).getPropertyValue('--blue').trim(),</p>
+<p class="p1"><span class="Apple-converted-space">      </span>red: getComputedStyle(document.documentElement).getPropertyValue('--red').trim(),</p>
+<p class="p1"><span class="Apple-converted-space">      </span>yellow: getComputedStyle(document.documentElement).getPropertyValue('--yellow').trim(),</p>
+<p class="p1"><span class="Apple-converted-space">      </span>green: getComputedStyle(document.documentElement).getPropertyValue('--green').trim(),</p>
+<p class="p1"><span class="Apple-converted-space">      </span>white: "#ffffff",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const state = {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>placed: false, <span class="Apple-converted-space">        </span>// becomes true after user releases attacker once</p>
+<p class="p1"><span class="Apple-converted-space">      </span>dragging: false,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>isOffside: null,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>offsideLineX: null</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// "Moment of pass" — ball is fixed for demo.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Positions are in normalized pitch coordinates (0..1).</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const ball = { x: 0.62, y: 0.50 }; <span class="Apple-converted-space">          </span>// right-middle, pass moment</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const gkLeft = { x: 0.08, y: 0.50, c: COLORS.yellow }; <span class="Apple-converted-space">  </span>// defending GK (excluded from line calc)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const gkRight = { x: 0.92, y: 0.50, c: COLORS.yellow };<span class="Apple-converted-space">  </span>// attacking GK (just for symmetry)</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Red defenders (outfield) — these define second-last defender.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// For goal on left, "closest to goal" means SMALLER x.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let defenders = [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ x: 0.44, y: 0.35 },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ x: 0.44, y: 0.50 },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ x: 0.44, y: 0.65 },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ x: 0.54, y: 0.50 }<span class="Apple-converted-space">  </span>// one defender deeper (not in the line), keeps scenario realistic</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Blue attacker the user drags</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const attackerStart = { x: 0.56, y: 0.52 };</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const attacker = { x: attackerStart.x, y: attackerStart.y, r: 0.018 };</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function computeOffsideLineNormalizedX() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Second-last defender among RED OUTFIELD players only.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const xs = defenders.map(d =&gt; d.x).slice().sort((a,b) =&gt; a-b); // smaller x = closer to goal</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const secondLastDefX = xs[1]; // second closest to goal</p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Offside line is closer-to-goal boundary: attacker must be &gt;= max(ballX, secondLastDefX)</p>
+<p class="p1"><span class="Apple-converted-space">      </span>// (Since goal is left, "closer to goal" means smaller x.)</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return Math.min(0.98, Math.max(ball.x, secondLastDefX));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function evaluate() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const lineX = computeOffsideLineNormalizedX();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.offsideLineX = lineX;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.isOffside = attacker.x &lt; lineX; // attacker closer to goal (left) than line</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.placed = true;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const verdictEl = document.getElementById("verdictText");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (state.isOffside) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>verdictEl.innerHTML = 'Verdict: &lt;span style="color:'+COLORS.red+';border-color:rgba(255,77,79,.35)"&gt;OFFSIDE&lt;/span&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>verdictEl.innerHTML = 'Verdict: &lt;span style="color:'+COLORS.green+';border-color:rgba(57,217,138,.35)"&gt;ON-SIDE&lt;/span&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function resetAttacker() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>attacker.x = attackerStart.x;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>attacker.y = attackerStart.y;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.placed = false;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.isOffside = null;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.offsideLineX = null;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("verdictText").innerHTML = 'Verdict: &lt;span&gt;Drag attacker&lt;/span&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("resetBtn").addEventListener("click", resetAttacker);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- p5 sketch ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const sketch = (p) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let canvas;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let hostEl;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const normToPx = (nx, ny) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const w = p.width, h = p.height;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// leave a small margin around pitch</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const m = Math.min(w, h) * 0.06;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const x = m + nx * (w - 2*m);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const y = m + ny * (h - 2*m);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return { x, y, m, innerW: (w-2*m), innerH: (h-2*m) };</p>
+<p class="p1"><span class="Apple-converted-space">      </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>function drawPitch() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.push();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.noFill();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.stroke(COLORS.pitchLine);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.strokeWeight(2);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const w = p.width, h = p.height;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const m = Math.min(w,h) * 0.06;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const x0 = m, y0 = m, x1 = w - m, y1 = h - m;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// outer rectangle</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.rect(x0, y0, x1-x0, y1-y0, 10);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// halfway line</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.strokeWeight(1.5);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.line((x0+x1)/2, y0, (x0+x1)/2, y1);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// penalty boxes (simple)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const boxW = (x1-x0) * 0.16;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const boxH = (y1-y0) * 0.55;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.rect(x0, (y0+y1-boxH)/2, boxW, boxH, 8);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.rect(x1-boxW, (y0+y1-boxH)/2, boxW, boxH, 8);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// center circle subtle</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.noFill();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.ellipse((x0+x1)/2, (y0+y1)/2, (y1-y0)*0.28);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.pop();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>function drawDot(nx, ny, color, radiusPx) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const pt = normToPx(nx, ny);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.push();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.noStroke();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.fill(color);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.circle(pt.x, pt.y, radiusPx*2);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.pop();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>function drawTextLabel(str, x, y) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.push();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.fill(COLORS.muted);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.noStroke();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.textSize(Math.max(12, p.width * 0.018));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.textAlign(p.LEFT, p.TOP);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.text(str, x, y);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.pop();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>function drawOffsideLine() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!state.placed || state.offsideLineX == null) return;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const pt = normToPx(state.offsideLineX, 0.0);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const m = pt.m;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const x = pt.x;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.push();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// dashed green vertical line</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.stroke(COLORS.green);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.strokeWeight(2);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const dash = 10;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const gap = 8;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>for (let y = m; y &lt; p.height - m; y += dash + gap) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>p.line(x, y, x, Math.min(y + dash, p.height - m));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// label</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.noStroke();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.fill(COLORS.green);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.textSize(Math.max(12, p.width * 0.016));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.textAlign(p.CENTER, p.BOTTOM);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.text("OFFSIDE LINE", x, m - 6);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.pop();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>function drawPassHint() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// subtle pass indicator from ball to central area (optional)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.push();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.stroke("rgba(255,255,255,0.18)");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.strokeWeight(1.5);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.noFill();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const b = normToPx(ball.x, ball.y);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const a = normToPx(attacker.x, attacker.y);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// only show while dragging (helps user)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (state.dragging) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>p.line(b.x, b.y, a.x, a.y);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.pop();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>function attackerHitTest(mx, my) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const pt = normToPx(attacker.x, attacker.y);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const r = Math.max(14, p.width * attacker.r);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const dx = mx - pt.x;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const dy = my - pt.y;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return (dx*dx + dy*dy) &lt;= r*r;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>function clampAttackerToPitch(nx, ny) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// keep attacker in the playable pitch box with margins</p>
+<p class="p1"><span class="Apple-converted-space">        </span>attacker.x = Math.max(0.08, Math.min(0.92, nx));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>attacker.y = Math.max(0.10, Math.min(0.90, ny));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>p.setup = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>hostEl = document.getElementById("p5host");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// size canvas to container</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const rect = hostEl.getBoundingClientRect();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>canvas = p.createCanvas(rect.width, rect.height);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>canvas.parent("p5host");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.textFont("ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>p.windowResized = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const rect = hostEl.getBoundingClientRect();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.resizeCanvas(rect.width, rect.height);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>p.draw = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.background(COLORS.bg);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>drawPitch();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Instructions inside pitch area (small)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const m = Math.min(p.width, p.height) * 0.06;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>drawTextLabel("Drag the blue attacker, then release", m, m);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// defenders (red)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>defenders.forEach(d =&gt; drawDot(d.x, d.y, COLORS.red, Math.max(6, p.width*0.010)));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// goalkeepers (yellow)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>drawDot(gkLeft.x, gkLeft.y, COLORS.yellow, Math.max(7, p.width*0.012));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>drawDot(gkRight.x, gkRight.y, COLORS.yellow, Math.max(7, p.width*0.012));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// ball (white)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>drawDot(ball.x, ball.y, COLORS.white, Math.max(6, p.width*0.010));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>drawPassHint();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>drawOffsideLine();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// attacker (blue) with ring when placed</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const ar = Math.max(8, p.width*0.013);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>drawDot(attacker.x, attacker.y, COLORS.blue, ar);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (state.placed) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>p.push();</p>
+<p class="p1"><span class="Apple-converted-space">          </span>const pt = normToPx(attacker.x, attacker.y);</p>
+<p class="p1"><span class="Apple-converted-space">          </span>p.noFill();</p>
+<p class="p1"><span class="Apple-converted-space">          </span>p.stroke(state.isOffside ? COLORS.red : COLORS.green);</p>
+<p class="p1"><span class="Apple-converted-space">          </span>p.strokeWeight(2);</p>
+<p class="p1"><span class="Apple-converted-space">          </span>p.circle(pt.x, pt.y, ar*2.6);</p>
+<p class="p1"><span class="Apple-converted-space">          </span>p.pop();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Mouse + touch support</p>
+<p class="p1"><span class="Apple-converted-space">      </span>p.mousePressed = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (attackerHitTest(p.mouseX, p.mouseY)) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>state.dragging = true;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>p.mouseDragged = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!state.dragging) return;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// convert mouse to normalized coordinates</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const w = p.width, h = p.height;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const m = Math.min(w, h) * 0.06;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const nx = (p.mouseX - m) / (w - 2*m);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const ny = (p.mouseY - m) / (h - 2*m);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>clampAttackerToPitch(nx, ny);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>p.mouseReleased = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!state.dragging) return;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.dragging = false;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>evaluate();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Touch aliases (p5 uses mouse events but these help on some devices)</p>
+<p class="p1"><span class="Apple-converted-space">      </span>p.touchStarted = () =&gt; { p.mousePressed(); return false; };</p>
+<p class="p1"><span class="Apple-converted-space">      </span>p.touchMoved = () =&gt; { p.mouseDragged(); return false; };</p>
+<p class="p1"><span class="Apple-converted-space">      </span>p.touchEnded = () =&gt; { p.mouseReleased(); return false; };</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>new p5(sketch);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
